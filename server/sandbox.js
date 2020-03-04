@@ -10,9 +10,7 @@ async function listrestaurant (){
 		//console.log(rest_link); //lien du 3eme restau
 		//sandbox(rest_link);
 
-
-		//A DECOMMENTER 
-		/*
+		
 		var link=``;
 		var list_r=[]; //liste de tous les restaurants d'une page
 		for(var page=1;page<2;page++) //parcours de toutes les pages
@@ -26,7 +24,7 @@ async function listrestaurant (){
 			}
 		}
 		console.log(list_r);
-		*/
+		
 
 		//FICHIER JSON
 		/*
@@ -46,7 +44,8 @@ async function listrestaurant (){
 		//const links_array = await allLinks();
 		
 		//var list = allLinks();
-		//console.log(list);
+		
+		process.exit(0);
 
 	}
 	catch(e){
@@ -65,7 +64,7 @@ async function sandbox (searchLink,list) {
 
 	    list.push(restaurant)
 	    
-	    //process.exit(0);
+	    
 	} 
 	catch (e) {
 	    console.error(e);
