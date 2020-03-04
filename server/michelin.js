@@ -10,11 +10,10 @@ const parse = data => {
   const $ = cheerio.load(data);
   const name = $('.section-main h2.restaurant-details__heading--title').text();
   const address = $('body > main > div.restaurant-details > div.container > div > div.col-xl-4.order-xl-8.col-lg-5.order-lg-7.restaurant-details__aside > div.restaurant-details__heading.d-lg-none > ul > li:nth-child(1)').text();
-  const experience = $('#experience-section > ul > li:nth-child(2)').text();
   const phone = $('body > main > div.restaurant-details > div.container > div > div.col-xl-8.col-lg-7 > section:nth-child(3) > div.row > div:nth-child(1) > div > div:nth-child(1) > div > div > a').attr('href');
   const website = $('body > main > div.restaurant-details > div.container > div > div.col-xl-8.col-lg-7 > section:nth-child(3) > div.row > div:nth-child(1) > div > div.collapse__block-item.link-item > a').attr('href');
 
-  return {name, address, experience, phone, website};
+  return {name, address, phone, website};
 };
 
 /**
@@ -27,7 +26,7 @@ const parse_link = (data,index) => {
   const $ = cheerio.load(data);
   var templink=$(`body > main > section.section-main.search-results.search-listing-result > div > div > div.row.restaurant__list-row.js-toggle-result.js-geolocation > div:nth-child(${index}) > div > a`).attr('href');
   
-  console.log(templink);
+  //console.log(templink);
   var restlink='https://guide.michelin.com'+`${templink}`;
   return restlink;
 };
@@ -67,6 +66,16 @@ module.exports.scrapeLinks = async (url,index) => {
   console.error(status);
 
   return null;
+};
+
+
+module.exports.allLinks = async () => {
+
+  let listOfLinks = $(`div.col-md-6:nth-child(1) > div:nth-child(1) > a:nth-child(4)`).map(function(i, el) {
+      return $(this).attr('href');
+  }).toArray();
+
+  return listOfLinks;
 };
 
 
