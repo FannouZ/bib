@@ -28,12 +28,6 @@ const parse_link = (data,index) => {
   //console.log(templink);
   var restlink='https://guide.michelin.com'+`${templink}`;
   return restlink;
-=======
-  const experience = $('#experience-section > ul > li:nth-child(2)').text();
-  const phone = $('body > main > div.restaurant-details > div.container > div > div.col-xl-8.col-lg-7 > section:nth-child(3) > div.row > div:nth-child(1) > div > div:nth-child(1) > div > div > a').attr('href');
-  const website = $('body > main > div.restaurant-details > div.container > div > div.col-xl-8.col-lg-7 > section:nth-child(3) > div.row > div:nth-child(1) > div > div.collapse__block-item.link-item > a').attr('href');
-
-  return {name, address, experience, phone, website};
 };
 
 /**

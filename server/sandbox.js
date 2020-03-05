@@ -1,5 +1,5 @@
 /* eslint-disable no-console, no-process-exit */
-const michelin = require('./michelin');
+const michelin = require('./michelin2');
 
 
 /*fonction qui appelle sandbox et qui modifie le lien a chaque fois*/
@@ -10,10 +10,11 @@ async function listrestaurant (){
 		//console.log(rest_link); //lien du 3eme restau
 		//sandbox(rest_link);
 
+		//A DECOMMENTER 
 		
 		var link=``;
 		var list_r=[]; //liste de tous les restaurants d'une page
-		for(var page=1;page<2;page++) //parcours de toutes les pages
+		for(var page=1;page<16;page++) //parcours de toutes les pages
 		{			
 			link =`https://guide.michelin.com/fr/fr/restaurants/bib-gourmand/page/${page}`;
 			for(var i=1;i<40;i++) //parcours de tous les restaurants d'une page
@@ -44,8 +45,7 @@ async function listrestaurant (){
 		//const links_array = await allLinks();
 		
 		//var list = allLinks();
-		
-		process.exit(0);
+		//console.log(list);
 
 	}
 	catch(e){
@@ -64,7 +64,7 @@ async function sandbox (searchLink,list) {
 
 	    list.push(restaurant)
 	    
-	    
+	    //process.exit(0);
 	} 
 	catch (e) {
 	    console.error(e);
